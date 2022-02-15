@@ -1,0 +1,27 @@
+{%extends "base.html" %}
+
+{% block main %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/profile.css')}}">
+<div id="card">
+    <img src="{{url_for('static', filename = 'images/me.jpg')}}">
+    <div id="pro-info">
+        <h2>Matthew Whynter</h2>
+        <p>@mwhynter</p>
+        <p>St. Catherine, Jamaica</p>
+        <p>joined {{date}}</p>
+    </div>
+    <div id="about">
+        <p>I am a well rounded individual who learns very quickly. 
+            I enjoy applying myself to new problems and I always stay 
+            focused on the task at hand until completion.</p>
+    </div>
+    <div id="info">
+        <p><b>5</b> posts</p>
+        <p><b>97</b> following</p>
+        <p><b>1M</b> followers</p>
+    </div>
+    <div id="button">
+        <button>Follow</button>
+    </div>
+</div>
+{% endblock %}

@@ -7,6 +7,7 @@ This file creates your application.
 
 from app import app
 from flask import render_template, request, redirect, url_for, flash
+from datetime import date
 
 
 ###
@@ -35,6 +36,11 @@ def send_text_file(file_name):
     file_dot_text = file_name + '.txt'
     return app.send_static_file(file_dot_text)
 
+@app.route('/profile')
+def profile():
+    date_joined = format_date_joined(date(2019, 9, 7))
+    return render_template('profile.html', date = date_joined)
+
 
 @app.after_request
 def add_header(response):
@@ -52,6 +58,9 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+def format_date_joined(date):
+    return date.strftime("%B %Y")
 
 
 if __name__ == '__main__':
